@@ -1,23 +1,48 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import Game from '../views/Game.vue'
+import Image from '../views/Image.vue'
+import Four04 from '../views/Four04.vue'
+import Dash from "../views/Dash.vue"
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'Home',
     component: Home
   },
+   {
+    path: '/games',
+    component: Game
+
+  },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/game/:id',
+    component: Image ,
+    beforeEnter(to, from, next){
+          if(to.params.id == 5){
+            next("/dash")
+          }
+          else if(localStorage.getItem("username")){
+            if (!localStorage.getItem("id"))
+              localStorage.setItem("id", 0)
+           else 
+            next();
+          }else{
+            next("/")
+          }
+    }
+  },
+  {
+    path: "/dash",
+    component: Dash
+  },
+  {
+    path: "*",
+    component: Four04
   }
+
 ]
 
 const router = new VueRouter({
