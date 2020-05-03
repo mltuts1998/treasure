@@ -2,7 +2,7 @@
 	<div>
 		<h3 style="text-align:center;text-transform: uppercase">Score Board</h3>
 	<ul class="collection">
-    <li class="collection-item avatar" v-for="(a,i) in list" :key="i">
+    <li class="collection-item avatar" v-for="(a,i) in list" :key="i" v-show="a.seen">
       <img :src="`https://robohash.org/{i}.png`" alt="" class="circle">
       <span class="title" style="text-transform: uppercase">{{a.username}}</span>
       <p>Points: {{a.key}}<br>

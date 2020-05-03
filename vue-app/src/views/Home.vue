@@ -29,7 +29,7 @@
 			<div class="fform">
 			<div class="form">
 			<div class="row">
-    <div class="input-field col s6" style="padding-top: 10px;">
+    <div class="input-field col s12" style="padding-top: 10px;">
       <input value="" id="username" type="text" class="validate" v-model="username">
       <label class="active" for="username"><i class="material-icons prefix">account_circle</i></label>
     
@@ -37,7 +37,7 @@
 
   </div>
 			<div class="row">
-    <div class="input-field col s6" style="padding-top: 10px;">
+    <div class="input-field col s12" style="padding-top: 10px;">
       <input value="" id="password" type="password" class="validate" v-model="password">
       <label class="active" for="password"><i class="material-icons prefix">lock_open</i></label>
     

@@ -2,7 +2,7 @@
 	<div class="game" :style="[{'background': black}, {'color': white}]">
 	
   <div class="row">
-    <div class="col s12 m7">
+    <div class="col">
       <div class="card" :style="{'background': lblack}">
         <div class="card-image">
           <div class="camera" ref="camera">
@@ -89,6 +89,12 @@ import Tesseract from 'tesseract.js';
 				},
 				logout: function(){
 					var a = confirm("are you sure you want to logout")
+					var b = confirm("do you your score to be visible in dashboard")
+							axios.patch("https://myaccount-f95bf.firebaseio.com/credentials/"+localStorage.getItem("key")+".json", {
+								"seen": b
+							}).then((req)=>{
+		      						console.log(req)
+		      					})
 					if(a){
 						localStorage.clear()
 						this.$router.push("/")
